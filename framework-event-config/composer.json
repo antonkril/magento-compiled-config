@@ -1,0 +1,17 @@
+{
+    "name": "magento/framework-event-config",
+    "description": "Event Config",
+    "type": "magento2-library",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "magento/framework-config": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "Magento\\Framework\\Event\\Config\\": ""
+        }
+    }
+}

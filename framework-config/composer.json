@@ -1,0 +1,17 @@
+{
+    "name": "magento/framework-config",
+    "description": "Generic config component",
+    "type": "magento2-library",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Magento\\Framework\\Config\\": ""
+        },
+        "files": [
+            "cli_commands.php"
+        ]
+    }
+}
