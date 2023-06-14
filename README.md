@@ -25,3 +25,9 @@
     </type>
 ```
 
+## Usage
+
+With the components installed Magento will start reading event configuration from `var/config/events/*.php` instead of generating it and storing in cache.
+These files contain event configuration merged from all installed modules. You can use them to troubleshoot magento event configuration.
+
+To generate the compiled event configuration files run `bin/magento config:compile`
