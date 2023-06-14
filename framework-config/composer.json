@@ -1,5 +1,5 @@
 {
-    "name": "magento/framework-config",
+    "name": "akril/config",
     "description": "Generic config component",
     "type": "magento2-library",
     "license": [
@@ -8,7 +8,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Magento\\Framework\\Config\\": ""
+            "Akril\\Config\\": ""
         },
         "files": [
             "cli_commands.php"

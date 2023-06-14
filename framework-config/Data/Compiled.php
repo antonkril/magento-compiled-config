@@ -1,5 +1,5 @@
 <?php
-namespace Magento\Framework\Config\Data;
+namespace Akril\Config\Data;
 
 use Magento\Framework\Config\DataInterface;
 use Magento\Framework\Config\ScopeInterface;

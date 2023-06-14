@@ -1,5 +1,5 @@
 <?php
-namespace Magento\Framework\Config;
+namespace Akril\Config;
 
 use InvalidArgumentException;
 use LogicException;

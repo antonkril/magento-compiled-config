@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Framework\Config\Command;
+namespace Akril\Config\Command;
 
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\ObjectManagerInterface;
@@ -67,7 +67,7 @@ class Compile extends Command
     {
         try {
             $modifiedFile = $input->getArgument('modified_file');
-            $compiler = $this->objectManager->get(\Magento\Framework\Config\Compiler::class);
+            $compiler = $this->objectManager->get(\Akril\Config\Compiler::class);
             $type = 'events';
             $compiler->compile($type);
             $output->writeln(sprintf('Compiled config type "%s"', $type));

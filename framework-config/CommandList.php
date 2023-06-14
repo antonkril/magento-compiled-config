@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Framework\Config;
+namespace Akril\Config;
 
 use Magento\Framework\ObjectManagerInterface;
 
@@ -20,7 +20,7 @@ class CommandList implements \Magento\Framework\Console\CommandListInterface
     private $objectManager;
     
     private $commandClasses = [
-        \Magento\Framework\Config\Command\Compile::class,
+        \Akril\Config\Command\Compile::class,
     ];
 
     /**

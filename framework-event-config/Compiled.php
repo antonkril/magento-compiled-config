@@ -1,5 +1,5 @@
 <?php
-namespace Magento\Framework\Event\Config;
+namespace Akril\Event\Config;
 
 use \Magento\Framework\Config\DataInterface;
 

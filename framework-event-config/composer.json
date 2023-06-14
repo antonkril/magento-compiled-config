@@ -1,17 +1,17 @@
 {
-    "name": "magento/framework-event-config",
-    "description": "Event Config",
+    "name": "akril/event-config",
+    "description": "Magento compiled event Config",
     "type": "magento2-library",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
     ],
     "require": {
-        "magento/framework-config": "dev-main"
+        "akril/config": "dev-main"
     },
     "autoload": {
         "psr-4": {
-            "Magento\\Framework\\Event\\Config\\": ""
+            "Akril\\Event\\Config\\": ""
         }
     }
 }
