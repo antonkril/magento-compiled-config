@@ -38,7 +38,7 @@ class Compiler
             throw new InvalidArgumentException(sprintf('No reader configuration for config type "%s"', $type));
         }
         $readerClass = $this->readers[$type];
-        if (!is_a($readerClass, ReaderInterface::class, true)) {
+        if (!is_a($readerClass, \Magento\Framework\Config\ReaderInterface::class, true)) {
             throw new LogicException(sprintf('Wrong configuration reader registered for type "%s"', $type));
         }
         $reader = $this->objectManager->get($readerClass);
@@ -51,7 +51,7 @@ class Compiler
                 $scope . '.php'
             ];
             $configPath = join(DIRECTORY_SEPARATOR, $pathParts);
-            file_put_contents($configPath, var_export($scopeConfig, true));
+            file_put_contents($configPath, sprintf('<?php return %s;', var_export($scopeConfig, true)));
         }
     }
 }
