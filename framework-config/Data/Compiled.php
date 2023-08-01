@@ -3,7 +3,7 @@ namespace Akril\Config\Data;
 
 use Magento\Framework\Config\DataInterface;
 use Magento\Framework\Config\ScopeInterface;
-use Magento\Framework\Filesystem\DirectoryList;
+use Magento\Framework\App\Filesystem\DirectoryList;
 
 class Compiled implements DataInterface
 {
@@ -51,12 +51,15 @@ class Compiled implements DataInterface
         if ($this->currentScope !== $this->configScope->getCurrentScope()) {
             $this->currentScope = $this->configScope->getCurrentScope();
             $pathParts = [
-                $this->directoryList->getPath('var'),
+                $this->directoryList->getPath('metadata'),
                 'config',
                 $this->configType,
                 $this->currentScope . '.php'
             ];
             $configPath = join(DIRECTORY_SEPARATOR, $pathParts);
+            if (!is_readable($configPath)) {
+                throw new \Exception("Could not load compiled event config. Did you run config compiler?");
+            }
             $this->data = include($configPath);
         }
         return isset($this->data[$key]) ? $this->data[$key] : $default;

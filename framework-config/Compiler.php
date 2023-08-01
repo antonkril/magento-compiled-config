@@ -42,15 +42,14 @@ class Compiler
             throw new LogicException(sprintf('Wrong configuration reader registered for type "%s"', $type));
         }
         $reader = $this->objectManager->get($readerClass);
+        $metadataDir = $this->directoryList->getPath('metadata');
         foreach ($this->scopes as $scope) {
             $scopeConfig = $reader->read($scope);
-            $pathParts = [
-                $this->directoryList->getPath('var'),
-                'config',
-                $type,
-                $scope . '.php'
-            ];
+            $pathParts = [ $metadataDir, 'config', $type, $scope . '.php' ];
             $configPath = join(DIRECTORY_SEPARATOR, $pathParts);
+            if (!file_exists(dirname($configPath))) {
+                mkdir(dirname($configPath), 0744, true);
+            }
             file_put_contents($configPath, sprintf('<?php return %s;', var_export($scopeConfig, true)));
         }
     }
