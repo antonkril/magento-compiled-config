@@ -1,5 +1,6 @@
 <?php
-namespace Akril\Config\Command;
+
+namespace Akril\Compiler\Command;
 
 use Magento\Framework\ObjectManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -40,15 +41,15 @@ class Compile extends Command
      */
     protected function configure()
     {
-        $description = 'Compile config.';
+        $description = 'Compile assets for a file.';
 
-        $this->setName('config:compile')
+        $this->setName('compile:file')
             ->setDescription($description)
             ->setDefinition([
                 new InputArgument(
                     'modified_file',
-                    InputArgument::OPTIONAL,
-                    'Configuration file to re-read'
+                    InputArgument::REQUIRED,
+                    'File to re-read'
                 ),
             ]);
         parent::configure();
@@ -59,15 +60,9 @@ class Compile extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        try {
-            $output->writeln($messages);
-            return \Magento\Framework\Console\Cli::RETURN_SUCCESS;
-        } catch (\Exception $e) {
-            $output->writeln('<error>' . $e->getMessage() . '</error>');
-            if ($output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
-                $output->writeln($e->getTraceAsString());
-            }
-            return \Magento\Framework\Console\Cli::RETURN_FAILURE;
-        }
+        $compiler = $this->objectManager->get(\Akril\Compiler\IncrementalCompiler::class);
+        $messages = $compiler->compile($input->getArgument('modified_file'));
+        $output->writeln($messages);
+        return \Magento\Framework\Console\Cli::RETURN_SUCCESS;
     }
 }

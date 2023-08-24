@@ -58,7 +58,7 @@ class Compiled implements DataInterface
             ];
             $configPath = join(DIRECTORY_SEPARATOR, $pathParts);
             if (!is_readable($configPath)) {
-                throw new \Exception("Could not load compiled event config. Did you run config compiler?");
+                return $default;
             }
             $this->data = include($configPath);
         }

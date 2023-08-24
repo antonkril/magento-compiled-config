@@ -1,0 +1,17 @@
+{
+    "name": "akril/compiler",
+    "description": "Application asset compiler",
+    "type": "magento2-library",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Akril\\Compiler\\": ""
+        },
+        "files": [
+            "cli_commands.php"
+        ]
+    }
+}
