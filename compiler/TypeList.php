@@ -66,7 +66,6 @@ class TypeList
                 $item[2]
             );
             return $item;
-            
         }, $this->typeData);
         $export = var_export($this->typeData, TRUE);
         $patterns = [

@@ -1,4 +1,5 @@
 <?php
+
 namespace Akril\Compiler;
 
 use Magento\Framework\ObjectManagerInterface;
@@ -14,7 +15,7 @@ class CommandList implements \Magento\Framework\Console\CommandListInterface
      * @var ObjectManagerInterface
      */
     private $objectManager;
-    
+
     private $commandClasses = [
         \Akril\Config\Command\Compile::class,
     ];
